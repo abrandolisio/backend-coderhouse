@@ -1,5 +1,5 @@
 
-
+// Creo la clase "Product"
 class Product{
     constructor({title, description, price, thumbnail, id, code, stock}){
         this.id = id
@@ -11,27 +11,28 @@ class Product{
         this.price = price 
 
         if (!(this.title.length > 1)) {
-            throw new Error('debe incluir el titulo', this.title);
+            throw new Error('Debe incluir el titulo', this.title);
         }
         if (!(this.description.length > 1)) {
-            throw new Error('debe incluir la descripcion', this.description);
+            throw new Error('Debe incluir la descripcion', this.description);
         }
         if (!(this.thumbnail.length > 1)) {
-            throw new Error('debe incluir la imagen', this.thumbnail);
+            throw new Error('Debe incluir la imagen', this.thumbnail);
         }
         if (!(this.thumbnail.length > 1)) {
-            throw new Error('debe incluir el codigo', this.code);
+            throw new Error('Debe incluir el codigo', this.code);
         }
         if (!(typeof this.stock === 'number')) {
-            throw new Error('debe incluir el stock', this.stock);
+            throw new Error('Debe incluir el stock', this.stock);
         }
         if (!(typeof this.price === 'number')) {
-            throw new Error('debe incluir el price', this.price);
+            throw new Error('Debe incluir el price', this.price);
         }
 
     }
 }
 
+// Creo la clase ProductManager con los metodos: addProduc, getProductById y getProducts
 class ProductManager{
 
     constructor(){
@@ -47,7 +48,7 @@ class ProductManager{
     _verify_code = (code) => {
 
         if (this._codeControl.includes(code)) {
-            throw new Error('ya existe un producto registrado bajo el codigo: ' + code);
+            throw new Error('Ya existe un producto registrado bajo el codigo: ' + code);
         }
         return true
     }
@@ -70,14 +71,14 @@ class ProductManager{
             this.products.push({...product})
             this._idControl.push(id)
             this._codeControl.push(code)
-            console.log(`se agrego productos el id: ${id}`)
+            console.log(`se agrego el producto con el id: ${id}`)
         } catch (error) {
             console.error("No fue posible agregar el producto " + error);
         }
     }
 
     getProductById = (id) => {
-        console.log("buscar producto por id: ", id)
+        console.log("Buscar producto por id: ", id)
 
         let found_product = this.products.filter((product) => {
             return product.id === id
@@ -92,7 +93,7 @@ class ProductManager{
     }
 
     getProducts = () => {
-        console.log("obtener productos")
+        console.log("Obtener productos")
         return this.products
     }
 }
@@ -105,7 +106,8 @@ console.log("--------------------- OBTENER PRODUCTOS ---------------------------
 console.log(productManager.getProducts())
 
 
-console.log("-------------------------- AGREGAR PRODICTO ------------------------------")
+// Agrego un producto de prueba
+console.log("-------------------------- AGREGAR PRODUCTO ------------------------------")
 productManager.addProduct({
         title: "producto prueba",
         description: "Este es un producto prueba",
@@ -119,10 +121,10 @@ productManager.addProduct({
 console.log("--------------------- OBTENER PRODUCTOS ------------------------------")
 console.log(productManager.getProducts())
 
-console.log("-------------------------- AGREGAR PRODICTO ------------------------------")
+console.log("-------------------------- AGREGAR PRODUCTO ------------------------------")
 productManager.addProduct({
-        title: "producto prueba",
-        description: "Este es un producto prueba",
+        title: "producto de prueba",
+        description: "Este es un producto de prueba",
         price:200,
         thumbnail: "Sin imagen",
         code: "abc123",

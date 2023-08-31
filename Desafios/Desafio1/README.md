@@ -26,4 +26,3 @@
 <li>Debe contar con un método “getProductById” el cual debe buscar en el arreglo el producto que coincida con el id
 - En caso de no coincidir ningún id, mostrar en consola un error “Not found”
 </li>
-<li></li>
