@@ -45,7 +45,7 @@ class ProductManager{
 
     constructor(){
         this.#products = new Array()
-        this.#productDirPath = "./files"
+        this.#productDirPath = "./desafios/Desafio2/files"
         this.#productFilePath = this.#productDirPath + "/products.json"
         this.#fileSystem = require("fs")
     }
